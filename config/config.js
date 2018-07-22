@@ -10,7 +10,7 @@ module.exports = {
         routes: {
             rootRoute: '/.*',
             createProject: '/api/addProject',
-            getProject: '/api/getProject',
+            getProjectById: '/api/getProjectById',
             getProjectList: '/api/getProjectList',
         },
         requestTimeout: 600 * 1000 //10 minutes
@@ -20,7 +20,7 @@ module.exports = {
         port: 3306,
         user: 'root',
         passcode: 'root', //root@135
-        db: 'testDb',
+        db: 'transervedb',
         reconnectDelay: 5000
     }
 }
