@@ -117,6 +117,57 @@ class ServiceHandler {
         }
     }
 
+    getAllUsersHandler(request, response) {
+        let startTime = new Date().getTime();
+        let sql = `select u.id, u.first_name as firstName, u.last_name as lastName, u.age, 
+                u.profile_pic as imageURL from transervedb.users u`;
+        dbConnection.query(sql, function (err, rows, fields) {
+            if (err) {
+                let error = {
+                    code: errorCodes.internalError,
+                    message: errorMessages.internalError
+                };
+                let interval = new Date().getTime() - startTime;
+                error.time = interval;
+                response.status(httpCodes.internalError).send(error);
+            } else {
+                let data = {
+                    result: rows,
+                    success: true
+                };
+                let interval = new Date().getTime() - startTime;
+                data.time = interval;
+                response.status(httpCodes.ok).send(data);
+            }
+        });
+
+    }
+
+    getAllFormsHandler(request, response) {
+        let startTime = new Date().getTime();
+        let sql = `SELECT id as formId, name as formName, shape, updated_on as updatedOn 
+                FROM transervedb.forms`;
+        dbConnection.query(sql, function (err, rows, fields) {
+            if (err) {
+                let error = {
+                    code: errorCodes.internalError,
+                    message: errorMessages.internalError
+                };
+                let interval = new Date().getTime() - startTime;
+                error.time = interval;
+                response.status(httpCodes.internalError).send(error);
+            } else {
+                let data = {
+                    result: rows,
+                    success: true
+                };
+                let interval = new Date().getTime() - startTime;
+                data.time = interval;
+                response.status(httpCodes.ok).send(data);
+            }
+        });
+    }
+
 
 }
 

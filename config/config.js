@@ -12,6 +12,8 @@ module.exports = {
             createProject: '/api/addProject',
             getProjectById: '/api/getProjectById',
             getProjectList: '/api/getProjectList',
+            getAllUsers: '/api/getUsers',
+            getAllForms: '/api/getForms'
         },
         requestTimeout: 600 * 1000 //10 minutes
     },
