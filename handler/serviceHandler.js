@@ -57,7 +57,7 @@ class ServiceHandler {
 
     getProjectListHandler(request, response) {
         let startTime = new Date().getTime();
-        let sql = `select id as projectId, forms_submitted as formsSubmitted, total, last_updated as lastUpdated, 
+        let sql = `select id as projectId, project_name as projectName, forms_submitted as formsSubmitted, total, last_updated as lastUpdated, 
             created_on as createdOn, description, count, symbol from transervedb.projects`;
         dbConnection.query(sql, function (err, rows, fields) {
             if (err) {
