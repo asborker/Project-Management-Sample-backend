@@ -27,12 +27,22 @@ let rootRouteHandler = function(request, response) {
   let getAllFormsHandler = function(request, response) {
     serviceHandler.getAllFormsHandler(request, response);
   };
+
+  let getProjectsWithUserListHandler = function(request, response) {
+    serviceHandler.getProjectsWithUserListHandler(request, response);
+  };
+
+  let getProjectFormsHandler = function(request, response) {
+    serviceHandler.getProjectFormsHandler(request, response);
+  };
   
   router.get(config.app.routes.rootRoute, rootRouteHandler);
   router.get(config.app.routes.getProjectList, getProjectListHandler);
+  router.get(config.app.routes.getAllProjectData, getProjectsWithUserListHandler);
   router.get(config.app.routes.getProjectById + '/:projectId', getProjectByIdHandler);
   router.get(config.app.routes.getAllUsers, getAllUsersHandler);
   router.get(config.app.routes.getAllForms, getAllFormsHandler);
+  router.get(config.app.routes.getProjectForms + '/:projectId', getProjectFormsHandler);
 
   router.post(config.app.routes.createProject, createProjectHandler);
 

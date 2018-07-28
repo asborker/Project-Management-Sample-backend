@@ -16,8 +16,9 @@ class Utility {
     }
 
     escapeStringUtil(obj) {
-        for(let key in obj) {
-            obj[key] = dbConnection.getEscapedString(obj[key]);
+        for (let key in obj) {
+            if (typeof obj[key] !== 'object')
+                obj[key] = dbConnection.getEscapedString(obj[key]);
         }
         return obj
     }
